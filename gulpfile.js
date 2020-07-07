@@ -28,7 +28,7 @@ function scripts() {
 }
 
 function styles() {
-    return src('app/sass/style.sass')
+    return src('app/sass/style.scss')
     .pipe(sass())
     .pipe(rename({suffix: '.min'}))
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
@@ -59,7 +59,7 @@ function build() {
 }
 
 function startwatch() {
-    watch(['app/**/*.sass', '!app/**/*.min.css'], styles);
+    watch(['app/**/*.scss', '!app/**/*.min.css'], styles);
     watch(['app/**/*.js', '!app/**/*.min.js'], scripts);
     watch('app/**/*.html').on('change', browserSync.reload);
     watch('app/images/src/**/*', images);
